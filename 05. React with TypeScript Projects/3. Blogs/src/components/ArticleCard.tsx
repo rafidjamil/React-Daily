@@ -1,19 +1,20 @@
-import { FaBookmark, FaTrash, FaEdit } from "react-icons/fa";
-import { Blog } from "../types";
+import React from "react";
+import type { Blog } from "./Types";
+import { FaBookBookmark } from "react-icons/fa6";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface ArticleCardProps {
   article: Blog;
   onDelete: () => void;
   onEdit: () => void;
 }
-
 const ArticleCard: React.FC<ArticleCardProps> = ({
   article,
   onDelete,
   onEdit,
 }) => {
   return (
-    <div className="flex p-4 bg-white w-[40rem] mb-6 ml-[2rem] shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+    <div className="flex p-4 bg-white w-full max-w-2xl mb-6 mt-5 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
       <img
         src={article.image}
         alt={article.title}
@@ -27,7 +28,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         <div className="flex items-center justify-between mt-4 text-gray-600">
           <span className="text-xs">{article.time}</span>
           <div className="flex space-x-3">
-            <FaBookmark className="text-gray-500 hover:text-gray-700 transition-colors duration-200 cursor-pointer" />
+            <FaBookBookmark className="text-gray-500 hover:text-gray-700 transition-colors duration-200 cursor-pointer" />
             <FaEdit
               onClick={onEdit}
               className="text-blue-500 hover:text-blue-600 transition-colors duration-200 cursor-pointer"

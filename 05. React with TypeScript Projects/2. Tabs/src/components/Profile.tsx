@@ -1,46 +1,40 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
-import Tabs from "./Tabs";
 
 const Profile = () => {
-  const [bannerUrl, setBannerUrl] = useState(
-    "https://via.placeholder.com/1500x400"
-  );
-  const [profileUrl, setProfileUrl] = useState(
-    "https://via.placeholder.com/100"
-  );
+  const [bannerurl, setbannerurl] = useState("https://placehold.co/1500x200");
+  const [profileurl, setprofileurl] = useState("https://placehold.co/100");
 
-  // Handlers for image changes
-  const handleBannerChange = (event) => {
-    const file = event.target.files[0];
+  const handleBannerChange = (e: any) => {
+    const file = e.target.files?.[0];
     if (file) {
-      // The line of code is used in JavaScript to create a temporary URL that points to a Blob or File object.
-      setBannerUrl(URL.createObjectURL(file));
+      setbannerurl(URL.createObjectURL(file));
     }
   };
 
-  const handleProfileChange = (event) => {
-    const file = event.target.files[0];
+  const handleProfileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
-      setProfileUrl(URL.createObjectURL(file));
+      setprofileurl(URL.createObjectURL(file));
     }
   };
-
+  
   return (
-    <div className="relative w-[94%] ml-[5rem]">
-      <div className="relative">
+    <div className="relative w-[100%]">
+      <div className="relative h-56 sm:h-64 md:h-72">
         <img
-          src={bannerUrl}
-          alt="Background"
-          className="w-full h-60 object-cover"
+          src={bannerurl}
+          alt="Banner"
+          className="w-full h-full object-cover object-center"
         />
-        <button className="absolute top-2 right-2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+
+        <button className="absolute top-3 right-3 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
           <label htmlFor="banner-upload" className="cursor-pointer">
-            <FaCamera size={24} />
+            <FaCamera size={20} />
           </label>
           <input
-            id="banner-upload"
             type="file"
+            id="banner-upload"
             accept="image/*"
             className="hidden"
             onChange={handleBannerChange}
@@ -48,32 +42,32 @@ const Profile = () => {
         </button>
       </div>
 
-      {/* Channel Logo */}
-      <div className="flex items-center ml-4 mt-[2rem] ">
-        <img
-          src={profileUrl}
-          alt="Channel Logo"
-          className="w-40 h-40  object-cover rounded-full border-4 border-white relative"
-        />
-
-        <button className="absolute  ml-[3.6rem] mt-[10rem] bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
-          <label htmlFor="profile-upload" className="cursor-pointer">
-            <FaCamera size={24} />
-          </label>
-          <input
-            id="profile-upload"
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleProfileChange}
+      <div className="relative px-4 pb-6 pt-16 sm:px-6 md:px-8">
+        <div className="absolute left-6 top-[-2.5rem] sm:left-8 sm:top-[-3rem]">
+          <img
+            src={profileurl}
+            alt="Channel Logo"
+            className="w-24 h-24 sm:w-28 sm:h-28 object-cover rounded-full border-4 border-white shadow-md"
           />
-        </button>
 
-        {/* Channel Details */}
-        <div className="ml-4 mt-4">
-          <h1 className="text-2xl font-bold">HuXn WebDev</h1>
-          <p>1M views</p>
-          <p className="mt-2">
+          <button className="absolute bottom-1 right-1 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-600">
+            <label htmlFor="profile-upload" className="cursor-pointer">
+              <FaCamera size={16} />
+            </label>
+            <input
+              id="profile-upload"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleProfileChange}
+            />
+          </button>
+        </div>
+
+        <div className="ml-0 pt-4 sm:ml-32 sm:pt-0">
+          <h1 className="text-2xl font-bold text-gray-900">Rafid Jamil</h1>
+          <p className="text-sm text-gray-600">1M subscribers</p>
+          <p className="mt-2 max-w-2xl text-sm text-gray-700">
             This is a short description of the YouTube channel. It gives an
             overview of the content and what viewers can expect.
           </p>
@@ -82,8 +76,6 @@ const Profile = () => {
           </button>
         </div>
       </div>
-
-      <Tabs />
     </div>
   );
 };

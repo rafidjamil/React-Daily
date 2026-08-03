@@ -26,15 +26,15 @@ const Contact = () => {
 
   return (
     <section className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-extrabold text-gray-900 mb-6">Contact Me</h2>
+      <h2 className="text-3xl  text-gray-900 mb-6">Contact Me</h2>
       <div className="flex items-center ">
         {links.map((link) => (
           <a
             key={link.label}
-            href={link.href}
+            // href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-2 text-gray-900 hover:text-gray-600 mr-[2rem]"
+            className="flex items-center space-x-2 text-gray-900 hover:text-gray-600 mr-[2rem] cursor-pointer"
           >
             {link.icon}
             <span className="text-lg">{link.label}</span>

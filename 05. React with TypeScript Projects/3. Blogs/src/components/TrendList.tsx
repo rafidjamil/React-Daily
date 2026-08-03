@@ -1,3 +1,5 @@
+import React from "react";
+
 const trends = [
   {
     title: "Be the Person You Are on Vacation",
@@ -12,21 +14,21 @@ const trends = [
     author: "Lindsey Curtis",
   },
 ];
-
-function TrendsList() {
+const TrendList = () => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow mt-8">
-      <h3 className="font-semibold text-lg mb-4">📈 Today's top trends</h3>
+    <div className="bg-white p4 rounded-lg shadow mt-8">
+      <h3 className="font-semibold text-lg mb-4">Todays Top Trends</h3>
       <ul className="space-y-4">
-        {trends.map((trend, index) => (
-          <li key={index} className="flex flex-col">
-            <span className="font-medium">{trend.title}</span>
-            <span className="text-sm text-gray-500">By {trend.author}</span>
-          </li>
+        {trends.map((trend, index)=>(
+            <li key={index} className="flex flex-col">
+                <span className="font-medium">{trend.title}</span>
+                <span className="text-gray-500 text-sm">{trend.author}</span>
+            </li>
         ))}
+
       </ul>
     </div>
   );
-}
+};
 
-export default TrendsList;
+export default TrendList;

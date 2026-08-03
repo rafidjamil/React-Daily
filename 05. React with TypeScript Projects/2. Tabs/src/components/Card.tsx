@@ -2,19 +2,19 @@ interface CardProps {
   title: string;
   description: string;
   image: string;
-  link: string;
+  link?: string;
 }
 
 const Card = ({ title, description, image, link }: CardProps) => {
   return (
-    <div className="max-w-sm mx-auto m-[1rem] bg-[#1A1C1E] rounded-lg shadow-md overflow-hidden">
-      <img className="w-full h-48 object-cover" src={image} alt={title} />
+    <div className="mx-auto m-[1rem] max-w-sm overflow-hidden rounded-lg bg-[#1A1C1E] shadow-md">
+      <img className="h-48 w-full object-cover" src={image} alt={title} />
       <div className="p-6">
-        <h2 className="text-2xl font-bold  mb-2">{title}</h2>
-        <p className="text-gray-700 mb-4">{description}</p>
+        <h2 className="mb-2 text-2xl font-bold">{title}</h2>
+        <p className="mb-4 text-gray-700">{description}</p>
         <a
-          href={link}
-          className="inline-block px-4 py-2 bg-white text-black font-semibold rounded-lg shadow hover:bg-gray-600 hover:text-white transition duration-200"
+          href={link || "#"}
+          className="inline-block rounded-lg bg-white px-4 py-2 font-semibold text-black shadow transition duration-200 hover:bg-gray-600 hover:text-white"
         >
           Learn More
         </a>

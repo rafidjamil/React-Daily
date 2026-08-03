@@ -1,16 +1,16 @@
-import { useBlogs } from "../shared/BlogContext";
-import ArticleCard from "./ArticleCard";
-import { Blog } from "../types";
+import React from 'react'
+import { useBlogs } from './BlogsContext'
+import ArticleCard from './ArticleCard';
+import type { Blog } from './Types';
 
 interface ArticleListProps {
-  onEdit: (blog: Blog) => void;
-}
+  onEdit:(blog:Blog)=>void;
 
+}
 const ArticleList: React.FC<ArticleListProps> = ({ onEdit }) => {
   const { blogs, deleteBlog } = useBlogs();
-
   return (
-    <div className="ml-[5rem]">
+    <div>
       {blogs.map((blog) => (
         <ArticleCard
           key={blog.id}
@@ -21,6 +21,6 @@ const ArticleList: React.FC<ArticleListProps> = ({ onEdit }) => {
       ))}
     </div>
   );
-};
+}
 
-export default ArticleList;
+export default ArticleList
