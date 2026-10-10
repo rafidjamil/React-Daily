@@ -1,0 +1,67 @@
+.sidebar {
+  width: 13%;
+  position: fixed;
+  height: 100vh;
+  border-right: 2px solid #e5e5e5;
+  padding: 12px 10px;
+  padding-left: 40px;
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* align-items: center; */
+}
+
+/* Category, Price, Colors headings */
+.sidebar-title {
+  font-size: 1.3rem;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+/* Label */
+.sidebar-label-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.logo{
+  font-size: 30px;
+}
+
+/* Hide default radio */
+.sidebar-label-container input {
+  display: none;
+}
+
+.sidebar h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Custom radio */
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  /* display: inline-block; */
+  flex-shrink: 0;
+}
+
+/* Colored radios */
+.checkmark.black {
+  background: black;
+}
+
+.checkmark.blue {
+  background: blue;
+}
+
+.checkmark.red {
+  background: red;
+}
